@@ -49,4 +49,5 @@ def valor_ano():
     
 
     plt.savefig('ano_vlliquidado_sum.pdf')
+    
 valor_ano()
