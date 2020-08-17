@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt # plotting
 import numpy as np # linear algebra
 import os # accessing directory structure
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import seaborn as sns
 
 
 def plotPerColumnDistribution(nGraphShown, nGraphPerRow):
@@ -28,4 +29,24 @@ def plotPerColumnDistribution(nGraphShown, nGraphPerRow):
     plt.show()
     plt.savefig('teste.png')
 
-plotPerColumnDistribution(10, 5)
+# plotPerColumnDistribution(10, 5)
+
+### TODO: 
+def valor_ano():
+    df = pd.read_csv('../data/data.csv')
+    plt.figure(figsize=(10,6))
+
+    plt.title("Gastos por ano")
+    groupedvalues=df.groupby('ANO').sum().reset_index()
+    g = sns.barplot(x=df['ANO'], y=df['VL_LIQUIDADO'], data=groupedvalues, estimator=sum)
+    ax=g
+    ax.set_xlabel('ANO')
+    for p in ax.patches:
+                ax.annotate("%.2f" % p.get_height(), (p.get_x() + p.get_width() / 2., p.get_height()),
+                    ha='center', va='center', fontsize=11, color='gray', xytext=(0, 20),
+                    textcoords='offset points')
+    _ = g.set_ylim(0,50000000)
+    
+
+    plt.savefig('ano_vlliquidado_sum.pdf')
+valor_ano()

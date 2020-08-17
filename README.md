@@ -19,3 +19,9 @@ Atributos de Identificação: Ano, Bimestre, Código do Município, Nome do Muni
 
 
 Fonte:	http://dados.tce.rs.gov.br | Autor:	TCE-RS | Mantenedor:	TCE-RS | Versão:	1.0
+
+### To Do - Análises a serem feitas
+
+- Gasto anual por secretaria: NOME_ORGAO_ORCAMENTARIO X ANO X VL_LIQUIDADO (é diferente de 0.0)
+
+- Onde foram aplicados os recursos livres?: NM_RECURSO X NOME_ORGAO_ORCAMENTARIO X ANO
